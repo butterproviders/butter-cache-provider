@@ -37,7 +37,7 @@ var CacheProvider = function () {
 
 inherits(CacheProvider, Provider)
 
-function UNIMPLEMENTED () = () => {
+function UNIMPLEMENTED () {
     console.error('UNIMPLEMENTED')
     return Promise.reject('UNIMPLEMENTED')
 }
