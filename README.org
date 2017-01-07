@@ -1,0 +1,4 @@
+This is a [[https://github.com/butterproject][Butter]] Cache Provider that uses [[https://pouchdb.com][PouchDB]] to cache data. 
+
+if you want to find more info on Butter Providers and Butter Cache Providers
+check the [[https://github.com/butterproject/butter-provider][Butter Provider Docs]].
