@@ -1,4 +1,17 @@
-This is a [[https://github.com/butterproject][Butter]] Cache Provider that uses [[https://pouchdb.com][PouchDB]] to cache data. 
+This is a [[https://github.com/butterproject][Butter]] Cache Provider base class.
 
 if you want to find more info on Butter Providers and Butter Cache Providers
 check the [[https://github.com/butterproject/butter-provider][Butter Provider Docs]].
+
+* CacheProvider.prototype.fetchFromDB  
+takes the same arguments as Butter Provider's fetch()
+
+* CacheProvider.prototype.updateFetch
+gets called with the results from a Butter Provider's fetch()
+
+* CacheProvider.prototype.detailFromDB 
+takes the same arguments as Butter Provider's detail()
+
+* CacheProvider.prototype.updateDetail 
+gets called with the results from a Butter Provider's detail()
+

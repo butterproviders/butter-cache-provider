@@ -1,14 +1,14 @@
 {
-  "name": "butter-cache-provider-pouchdb",
+  "name": "butter-cache-provider",
   "version": "0.0.1",
-  "description": "A butter provider implementing caching through PouchDB",
+  "description": "A base class for Butter Cache Providers",
   "main": "index.js",
   "scripts": {
     "test": "tape node_modules/butter-provider/tests/*"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/butterproviders/butter-cache-provider-pouchdb.git"
+    "url": "git+https://github.com/butterproviders/butter-cache-provider.git"
   },
   "keywords": [
     "Butter",
@@ -19,17 +19,17 @@
     "Media",
     "Provider",
     "cache",
-    "pouchdb"
+    "nedb"
   ],
   "author": "Niv Sardi <x@btn.sh>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/butterproviders/butter-cache-provider-pouchdb/issues"
+    "url": "https://github.com/butterproviders/butter-cache-provider/issues"
   },
-  "homepage": "https://github.com/butterproviders/butter-cache-provider-pouchdb#readme",
+  "homepage": "https://github.com/butterproviders/butter-cache-provider#readme",
   "dependencies": {
     "butter-provider": "^0.9.7",
-    "pouchdb": "^6.1.1",
+    "mkdir-recursive": "^0.2.3",
     "utils-configdir": "^1.0.0"
   }
 }
