@@ -11,13 +11,15 @@ var inherits = require('util').inherits
 function _make_cached_call (provider, cache, update) {
     return function () {
         var promises = [
-            provider.apply(this, arguments),
+            provider.apply(this, arguments)
+                    .then(data => {
+                        update.apply(this, [data])
+                        return data
+                    }),
             cache.apply(this, arguments)
         ]
 
-        var firstSettled = PromiseUtils.firstSettled(promises)
-        promises[0].then(data => update.apply(this, [data]))
-        return firstSettled
+        return PromiseUtils.firstSettled(promises)
     }
 }
 
@@ -27,11 +29,11 @@ var CacheProvider = function () {
     this.configDir = ConfigDir('Butter/cache/butter-provider-' + this.config.name)
     fx.mkdirSync(this.configDir)
 
-    var oldFetch = this.fetch
-    this.fetch = _make_cached_call.apply(this, [oldFetch,
+    this._fetch_uncached = this.fetch
+    this.fetch = _make_cached_call.apply(this, [this._fetch_uncached,
                                                 this.fetchFromDB, this.updateFetch])
-    var oldDetail = this.detail
-    this.detail = _make_cached_call.apply(this, [oldDetail,
+    this._detail_uncached = this.detail
+    this.detail = _make_cached_call.apply(this, [this._detail_uncached,
                                                 this.detailFromDB, this.updateDetail])
 }
 
